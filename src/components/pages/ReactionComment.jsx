@@ -62,10 +62,10 @@ const ReactionComment = ({ myReaction }) => {
                         <img
                             src={currentReaction ? currentReaction.emoji : pick?.emoji}
                             alt=""
-                            className="w-15 h-15 mr-2"
+                            className="w-10 h-10 mr-2"
                         />
                     }
-                    <h6 className="text-gray-300 text-base ml-4 mt-2">
+                    <h6 className="text-gray-300 text-xs ml-4 mt-2">
                         {currentReaction
                             ? currentReaction.label
                             : pick ? pick.label : 'Like'

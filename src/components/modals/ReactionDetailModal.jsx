@@ -48,10 +48,10 @@ const ReactionDetailModal = ({ reactionDetail, setReactionDetail, reaction, isFo
                             onClick={() => setSelectedReaction('all')}
                         >
                             <div className="flex items-center py-3 px-4">
-                                <h2 className="text-white text-lg font-bold mr-2">
+                                <h2 className="text-white text-base font-bold mr-2">
                                     All
                                 </h2>
-                                <span className="text-white text-xl font-bold">
+                                <span className="text-white text-base font-bold">
                                     {reactionCounts.all}
                                 </span>
                             </div>
@@ -68,7 +68,7 @@ const ReactionDetailModal = ({ reactionDetail, setReactionDetail, reaction, isFo
                                     <img
                                         src={REACTIONS_IMAGE[reactionType]}
                                         alt={reactionType}
-                                        className="w-10 h-10 mr-1"
+                                        className="w-8 h-8 mr-1"
                                     />
                                     <span className="text-white text-xl font-bold">
                                         {reactionCounts[reactionType]}
@@ -82,7 +82,7 @@ const ReactionDetailModal = ({ reactionDetail, setReactionDetail, reaction, isFo
                         onClick={() => setReactionDetail(false)}
                     >
                         <ClearIcon
-                            fontSize="large"
+                            fontSize="medium"
                             className="text-gray-300"
                         />
                     </div>
@@ -105,25 +105,25 @@ const ReactionDetailModal = ({ reactionDetail, setReactionDetail, reaction, isFo
                                                 <img
                                                     src={REACTIONS_IMAGE[item.reaction]}
                                                     alt={item.reaction}
-                                                    className="w-10 h-10"
+                                                    className="w-8 h-8"
                                                 />
                                             </div>
                                         }
                                     >
                                         <CustomAvatar
                                             src={item.user?.avatar}
-                                            sx={{ width: 80, height: 80, marginRight: 2 }}
+                                            sx={{ width: 60, height: 60, marginRight: 2 }}
                                         />
                                     </Badge>
 
-                                    <h2 className="font-bold text-white text-xl ml-3">
+                                    <h2 className="font-bold text-white text-lg ml-3">
                                         {item.user?.name}
                                     </h2>
                                 </div>
                                 
                                 <div className="bg-white/10 flex items-center py-2 px-4 rounded-lg hover:bg-white/20 cursor-pointer transition-colors">
                                     <PersonAddIcon fontSize="medium" className="text-white" />
-                                    <h3 className="text-blue-400 font-medium text-xl ml-2">
+                                    <h3 className="text-blue-400 font-medium text-lg ml-2">
                                         {isFollow ? 'Unfollow' : 'Follow'}
                                     </h3>
                                 </div>

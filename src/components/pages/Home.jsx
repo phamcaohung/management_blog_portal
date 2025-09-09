@@ -12,7 +12,7 @@ const Home = ({ content }) => {
     const user = useSelector(store => store.users?.user)
 
     return (
-        <div className="bg-[#1C1C1D] min-h-screen pb-14">
+        <div className="bg-[#1C1C1D] min-h-screen pb-10">
             <Grid container paddingTop={5}>
                 <Grid size={3}>
                     <LeftBlog

@@ -33,15 +33,15 @@ const NotificationModal = () => {
                 >
                     <Alert
                         severity={notification.severity}
-                        className="w-[600px] flex justify-center items-center"
+                        className="w-[500px] flex justify-center items-center"
                         sx={{
                             ".MuiAlert-icon .MuiSvgIcon-root": {
-                                fontSize: 40
+                                fontSize: 30
                             }
                         }}
                     >
                         <div className="flex justify-center items-center">
-                            <h3 className="mr-5 text-center text-xl">
+                            <h3 className="mr-5 text-center text-base">
                                 {notification.message}
                             </h3>
                             <button

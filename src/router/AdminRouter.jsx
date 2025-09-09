@@ -1,16 +1,21 @@
-import { Navigate, Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes, useLocation } from "react-router-dom"
 import SigninAdmin from "../components/auth/admin/SigninAdmin"
 import { useSelector } from "react-redux"
 import AdminNavbar from "../components/auth/admin/AdminNavBar"
 import DashBoardUser from "../components/auth/admin/DashBoardUser"
 import NotificationModal from "../components/modals/NotificationModal"
 import DashBoardBlog from "../components/auth/admin/DashBoardBlog"
+import { useEffect } from "react"
 
 
 const AdminRouter = () => {
     const admin = useSelector(store => store.admin?.admin)
     console.log("admin: ", admin);
+    const { pathname } = useLocation()
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div>
             <NotificationModal />

@@ -37,6 +37,7 @@ export const getUsersAdmin = (name, email, limit, skip, reset = false) => async 
             type: reset ? types.GET_USERS_SUCCESS : types.GET_USERS_MORE_SUCCESS,
             payload: data
         })
+        return data
     } catch (e) {
         dispatch({
             type: reset ? types.GET_USERS_FAILURE : types.GET_USERS_MORE_FAILURE,
@@ -55,6 +56,7 @@ export const getBlogsAdmin = (content, user, limit, skip, reset = false) => asyn
                 totalBlogs: data.totalBlogs
             }
         })
+        return data.formattedBlogs
     } catch (e) {
         dispatch({
             type: reset ? types.GET_BLOGS_FAILURE : types.GET_MORE_BLOGS_FAILURE,

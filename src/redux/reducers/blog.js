@@ -6,9 +6,9 @@ import * as userTypes from "../constants/userConstants"
 
 const initialState = {
     blog: null,
-    blogs: null,
+    blogs: [],
     profile: [],
-    blogsFollowing: null,
+    blogsFollowing: [],
     savedBlog: [],
 
     totalBlogs: 0,

@@ -26,14 +26,14 @@ const SavedBlogs = ({ item }) => {
                     />
                 </Grid>
                 <Grid size={6}>
-                    <h2 className="text-2xl text-gray-200 font-bold truncate">
+                    <h2 className="text-xl text-gray-200 font-bold truncate">
                         {item.blog.content}
                     </h2>
                     <div className="flex items-center mt-10">
                         <CustomAvatar
                             src={item.blog?.user?.avatar}
                         />
-                        <h3 className="text-xl text-gray-400 font-semibold ml-5">
+                        <h3 className="text-lg text-gray-400 font-semibold ml-5">
                             Saved From
                             <span className="text-gray-200 ml-3">{item.blog?.user?.name}</span>
                         </h3>
@@ -41,13 +41,13 @@ const SavedBlogs = ({ item }) => {
                     <div className="mt-10">
                         <button
                             onClick={() => navigate(`/blog/${item.blog._id}`)}
-                            className="text-xl font-semibold bg-indigo-300 mr-5 hover:bg-black hover:text-white cursor-pointer"
+                            className="text-lg font-semibold bg-indigo-300 mr-5 hover:bg-black hover:text-white cursor-pointer"
                         >
                             View Detail
                         </button>
                         <button
                             onClick={handleUnSave}
-                            className="text-xl font-semibold bg-red-300 hover:bg-red-500 cursor-pointer"
+                            className="text-lg font-semibold bg-red-300 hover:bg-red-500 cursor-pointer"
                         >
                             Unsave
                         </button>
@@ -55,10 +55,10 @@ const SavedBlogs = ({ item }) => {
                 </Grid>
                 <Grid size={2} className="items-center flex">
                     <div>
-                        <h2 className="text-3xl text-white font-bold text-center">
+                        <h2 className="text-xl text-white font-bold text-center">
                             Saved At
                         </h2>
-                        <h2 className="text-2xl text-gray-200 font-bold text-center mt-5">
+                        <h2 className="text-xl text-gray-200 font-bold text-center mt-5">
                             {item.createdAt}
                         </h2>
                     </div>

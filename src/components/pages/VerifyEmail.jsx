@@ -67,7 +67,7 @@ const VerifyEmail = () => {
                         </>
                     ) : (
                         <>
-                            <h1>Verify your email address</h1>
+                            <h1 className="text-3xl font-bold">Verify your email address</h1>
                             {!codeFromUrl && !emailFromUrl && (
                                 <p className="my-5">
                                     A verification code was sent to your email address. Please either

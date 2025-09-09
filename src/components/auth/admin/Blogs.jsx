@@ -43,7 +43,7 @@ const Blogs = ({ blog }) => {
                 <div className="flex">
                     <CustomAvatar
                         src={blog?.user?.avatar}
-                        sx={{ width: 70, height: 70, marginRight: 3 }}
+                        sx={{ width: 50, height: 50, marginRight: 3 }}
                     />
                     <div>
                         <div className="flex items-center">
@@ -51,7 +51,7 @@ const Blogs = ({ blog }) => {
                                 {blog.user?.name}
                             </h2>
                         </div>
-                        <h3 className="font-semibold text-gray-300 text-base mt-2">{blog.createdAt}</h3>
+                        <h3 className="font-semibold text-gray-300 text-xs mt-2">{blog.createdAt}</h3>
                     </div>
                 </div>
                 <div>
@@ -64,7 +64,7 @@ const Blogs = ({ blog }) => {
                 </div>
             </div>
             <div className="mt-5">
-                <h2 className="text-xl text-white whitespace-pre-wrap">
+                <h2 className="text-base text-white whitespace-pre-wrap">
                     {blog.content}
                 </h2>
             </div>
@@ -96,7 +96,7 @@ const Blogs = ({ blog }) => {
                 </div>
                 <div className="flex items-center">
                     <h5
-                        className="text-lg text-gray-300 cursor-pointer"
+                        className="text-sm text-gray-300 cursor-pointer"
                         onClick={() => setOpen(!open)}
                     >
                         {blog.comments?.length} comments

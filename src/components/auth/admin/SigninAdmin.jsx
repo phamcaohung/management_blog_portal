@@ -23,9 +23,9 @@ const SigninAdmin = () => {
 
     return (
         <div className="signin-and-signup">
-            <div className="w-[700px] bg-white rounded-2xl shadow-2xl">
-                <div className="py-30 px-40 h-full text-center">
-                    <h1 className="text-5xl font-bold pb-10">
+            <div className="w-[600px] bg-white rounded-2xl shadow-2xl">
+                <div className="py-20 px-30 h-full text-center">
+                    <h1 className="text-4xl font-bold pb-10">
                         Sign In Admin
                     </h1>
                     <TextField
@@ -47,7 +47,7 @@ const SigninAdmin = () => {
                     />
                     <button 
                         onClick={handleSignIn}
-                        className="bg-[#111827] uppercase cursor-pointer text-white text-xl font-bold py-10 px-44 mt-10"
+                        className="bg-[#111827] uppercase cursor-pointer text-white text-lg font-bold mt-10"
                     >
                         Sign In
                     </button>

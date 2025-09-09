@@ -74,7 +74,7 @@ const CreateBlogModal = ({ open, setOpenModal, blog }) => {
 
     return (
         <Modal open={open} onClose={() => setOpenModal(false)}>
-            <div className="bg-[#252728] rounded-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-auto">
+            <div className="bg-[#252728] rounded-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-auto">
                 <div className="mb-3 flex justify-between mt-3 px-5 ">
                     <div></div>
                     <h6 className="text-3xl font-bold text-white">
@@ -101,17 +101,17 @@ const CreateBlogModal = ({ open, setOpenModal, blog }) => {
                         <h2 className="font-bold mr-5 text-gray-300 text-xl">{user.name}</h2>
                     </div>
                     <textarea
-                        rows={file || existingFile ? 6 : 4}
+                        rows={3}
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         placeholder={`What's on your mind, ${user.name} ?`}
                         className="
-                                w-full rounded-3xl py-3 text-gray-200 text-xl mt-3
+                                w-full rounded-3xl py-3 text-gray-200 text-base mt-3
                                 placeholder-gray-400 focus:outline-none resize-none cursor-pointer
                             "
                     />
                     {existingFile && !removeFile &&
-                        <div className="w-full h-[290px] border border-gray-400 rounded-xl mb-5">
+                        <div className="w-full h-[270px] border border-gray-400 rounded-xl mb-5">
                             <div
                                 className="cursor-pointer absolute right-7 translate-y-2"
                                 onClick={() => setRemoveFile(true)}
@@ -134,7 +134,7 @@ const CreateBlogModal = ({ open, setOpenModal, blog }) => {
                     }
 
                     {file &&
-                        <div className="w-full h-[290px] border border-gray-400 rounded-xl mb-5">
+                        <div className="w-full h-[270px] border border-gray-400 rounded-xl mb-5">
                             <div
                                 className="cursor-pointer absolute right-7 translate-y-2"
                                 onClick={() => {
@@ -158,8 +158,8 @@ const CreateBlogModal = ({ open, setOpenModal, blog }) => {
                             />
                         </div>
                     }
-                    <div className="border border-gray-400 flex items-center justify-between px-5 py-4 rounded-xl">
-                        <h2 className="text-2xl text-gray-300 font-semibold">Add To Your Blog</h2>
+                    <div className="border border-gray-400 flex items-center justify-between px-5 py-2 rounded-xl">
+                        <h2 className="text-xl text-gray-300 font-semibold">Add To Your Blog</h2>
                         <div>
                             <Button
                                 component="label"
@@ -188,7 +188,7 @@ const CreateBlogModal = ({ open, setOpenModal, blog }) => {
                     <button
                         disabled={isDisabled}
                         onClick={handleCreateBlog}
-                        className={`${isDisabled ? 'bg-[#3B3D3E] cursor-not-allowed' : 'bg-[#2176FF] cursor-pointer'} w-full  mt-5 text-2xl text-white font-bold`}
+                        className={`${isDisabled ? 'bg-[#3B3D3E] cursor-not-allowed' : 'bg-[#2176FF] cursor-pointer'} w-full  mt-5 text-xl text-white font-bold`}
                     >
                         {blog ? 'Update' : 'Post'}
                     </button>

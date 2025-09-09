@@ -21,11 +21,11 @@ const RightBlog = () => {
                         <img
                             src={item.url}
                             alt=""
-                            className="w-[250px] h-[200px]"
+                            className="w-[200px] h-[150px]"
                         />
                         <div className="ml-5">
-                            <h4 className="text-white text-xl">{item.text}</h4>
-                            <h5 className="text-gray-300">{item.link}</h5>
+                            <h4 className="text-white text-lg">{item.text}</h4>
+                            <h5 className="text-gray-300 text-sm">{item.link}</h5>
                         </div>
                     </div>
                 ))}

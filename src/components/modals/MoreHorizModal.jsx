@@ -41,13 +41,13 @@ const MoreHorizModal = ({ open, blog, conditionShow }) => {
                         {!conditionShow &&
                             <div
                                 onClick={handleSaveBlog}
-                                className="flex items-center p-2 mt-5 hover:bg-white/10 cursor-pointer rounded-xl"
+                                className="flex items-center p-2 mt-3 hover:bg-white/10 cursor-pointer rounded-xl"
                             >
                                 <BookmarkIcon
-                                    fontSize="large"
+                                    fontSize="medium"
                                     className="text-orange-300"
                                 />
-                                <h3 className="text-xl text-gray-200 ml-5">
+                                <h3 className="text-base text-gray-200 ml-5">
                                     {isSave ? 'UnSave Blog' : 'Save Blog'}
                                 </h3>
                             </div>
@@ -58,13 +58,13 @@ const MoreHorizModal = ({ open, blog, conditionShow }) => {
                                 {/* Edit Blog */}
                                 <div
                                     onClick={() => setOpenModal(true)}
-                                    className="flex items-center p-2 mt-5 hover:bg-white/10 cursor-pointer rounded-xl"
+                                    className="flex items-center p-2 mt-3 hover:bg-white/10 cursor-pointer rounded-xl"
                                 >
                                     <EditIcon
-                                        fontSize="large"
+                                        fontSize="medium"
                                         className="text-pink-400"
                                     />
-                                    <h3 className="text-xl text-gray-200 ml-5">
+                                    <h3 className="text-base text-gray-200 ml-5">
                                         Edit Blog
                                     </h3>
                                 </div>
@@ -73,13 +73,13 @@ const MoreHorizModal = ({ open, blog, conditionShow }) => {
                                 {/* Delete Blog */}
                                 <div
                                     onClick={handleDeleteBlog}
-                                    className="flex items-center p-2 mt-5 hover:bg-white/10 cursor-pointer rounded-xl"
+                                    className="flex items-center p-2 mt-3 hover:bg-white/10 cursor-pointer rounded-xl"
                                 >
                                     <DeleteIcon
-                                        fontSize="large"
+                                        fontSize="medium"
                                         className="text-red-400"
                                     />
-                                    <h3 className="text-xl text-gray-200 ml-5">
+                                    <h3 className="text-base text-gray-200 ml-5">
                                         Delete Blog
                                     </h3>
                                 </div>

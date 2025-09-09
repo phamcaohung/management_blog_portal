@@ -20,7 +20,7 @@ const AdminNavbar = () => {
     }
 
     return (
-        <div className="bg-[#252728] h-[80px] sticky top-0 z-50">
+        <div className="bg-[#252728] h-[69px] sticky top-0 z-50">
             <div className='flex justify-center'>
                 {menu.map((item, index) => {
                     const active = location.pathname === item.route
@@ -30,14 +30,12 @@ const AdminNavbar = () => {
                             key={index}
                             className={`
                                     ${active && 'border-b-6 border-blue-500'} 
-                                    pt-6 ml-10 cursor-pointer text-center w-30
+                                    pt-7 mx-3 cursor-pointer text-center w-25
                                     transition-all duration-300 hover:bg-white/10
                                 `}
                         >
                             <item.icon
-                                sx={{
-                                    fontSize: 50
-                                }}
+                                fontSize='large'
                                 className={`${active ? 'text-blue-500' : 'text-gray-400'}`}
                             />
                         </div>
@@ -45,10 +43,10 @@ const AdminNavbar = () => {
                 })}
                 <div
                     onClick={handleLogOut}
-                    className="pt-6 ml-10 cursor-pointer text-center w-30 hover:bg-white/10"
+                    className="pt-7 mx-3 cursor-pointer text-center w-25 hover:bg-white/10"
                 >
                     <LogoutIcon
-                        sx={{ fontSize: 50 }}
+                        fontSize='large'
                         className="text-gray-400"
                     />
                 </div>

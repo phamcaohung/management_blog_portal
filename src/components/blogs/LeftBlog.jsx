@@ -34,24 +34,24 @@ const LeftBlog = ({ user }) => {
                 <div className='w-[60px] mr-5'>
                     <Avatar
                         src={user.avatar}
-                        sx={{ width: 60, height: 60 }}
+                        sx={{ width: 50, height: 50 }}
                     />
                 </div>
-                <h3 className='text-gray-200 text-xl font-bold'>{user.name}</h3>
+                <h3 className='text-gray-200 text-lg font-bold'>{user.name}</h3>
             </div>
 
             <div className="flex items-center hover:bg-white/10 py-5 px-2 cursor-pointer rounded-xl">
                 <div className='w-[60px] mr-5 text-center'>
                     <BookmarkIcon
                         className="text-green-300"
-                        sx={{ fontSize: 40 }}
+                        fontSize='large'
                     />
                 </div>
                 <div 
                     onClick={() => navigate("/saved")}
                     className='flex justify-between items-center w-full'
                 >
-                    <h2 className='text-gray-200 text-xl font-bold'>
+                    <h2 className='text-gray-200 text-lg font-bold'>
                         Saved
                     </h2>
                 </div>

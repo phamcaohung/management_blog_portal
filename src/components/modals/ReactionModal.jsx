@@ -11,7 +11,7 @@ const ReactionModal = ({ open, handlePickReaction, reaction }) => {
         >
             <Paper
                 sx={{
-                    px: 1,
+                    px: 0,
                     py: 0.75,
                     borderRadius: 3,
                     backgroundColor: "#242526"
@@ -30,7 +30,7 @@ const ReactionModal = ({ open, handlePickReaction, reaction }) => {
                                 <img
                                     src={item.emoji}
                                     alt=""
-                                    className="w-15 h-15"
+                                    className="w-10 h-10"
                                 />
                             </Button>
                         </Tooltip>

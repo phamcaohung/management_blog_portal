@@ -31,29 +31,29 @@ const Users = ({ user, loading }) => {
                         <Skeleton
                             variant="circular"
                             animation="pulse"
-                            sx={{ width: 70, height: 70, marginRight: 3, bgcolor: 'gray' }}
+                            sx={{ width: 50, height: 50, marginRight: 3, bgcolor: 'gray' }}
                         />
                         <Skeleton
                             animation="pulse"
-                            sx={{ width: 150, height: 20, bgcolor: "gray" }}
+                            sx={{ width: 100, height: 10, bgcolor: "gray" }}
                         />
                     </>
                 ) : (
                     <>
                         <CustomAvatar
                             src={user.avatar}
-                            sx={{ width: 70, height: 70, marginRight: 3 }}
+                            sx={{ width: 50, height: 50, marginRight: 3 }}
                             onClick={() => navigate(`/profile/${user?._id}`)}
                         />
                         <h3 
                             onClick={() => navigate(`/profile/${user?._id}`)}
-                            className='text-gray-200 text-xl font-bold hover:underline cursor-pointer'
+                            className='text-gray-200 text-base font-bold hover:underline cursor-pointer'
                         >
                             {user.name}
                         </h3>
                         <h3
                             onClick={handleFollow}
-                            className="font-bold text-blue-400 ml-5 text-lg cursor-pointer hover:underline"
+                            className="font-bold text-blue-400 ml-5 text-sm cursor-pointer hover:underline"
                         >
                             {isFollow ? 'UnFollow' : 'Follow'}
                         </h3>

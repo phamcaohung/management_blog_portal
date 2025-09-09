@@ -1,5 +1,5 @@
 import { Divider, Grid } from "@mui/material"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteUserAdmin, getUsersAdmin } from "../../../redux/actions/adminAction"
 import { CustomAvatar } from "../../pages/CustomStyle"
@@ -7,94 +7,88 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterCategory from "./FilterCategory"
 import LoadingSpinner from "../../loading/LoadingSpinner"
 import { showNotification } from "../../../redux/actions/notificationAction"
-import { useInfiniteScroll } from "../../../utils/hook"
 
 
 const DashBoardUser = () => {
     const users = useSelector(store => store.admin?.users)
     const dispatch = useDispatch()
-    const styleTitle = "text-3xl font-bold"
-    const styleText = "text-2xl font-semibold"
+    const styleTitle = "text-2xl font-bold"
+    const styleText = "text-xl font-semibold"
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [loadingMore, setLoadingMore] = useState(false)
     const [hasMore, setHasMore] = useState(true)
     const [skip, setSkip] = useState(0)
     const limit = 10
+    const skipRef = useRef(0)
+    const canLoadMore = useRef(true)
 
     const handleDeleteUser = async (id) => {
         await dispatch(deleteUserAdmin(id))
         dispatch(showNotification("Delete User Successfully", "success"))
     }
 
-    useInfiniteScroll({
-        length: users?.length,
-        dispatchAction: getUsersAdmin(name, email, limit, 0, true),
-        dispatchActionMore: getUsersAdmin(name, email, limit, skip),
-        dispatch: dispatch,
-        setLoading: setLoading,
-        setHasMore: setHasMore,
-        setSkip: setSkip,
-        setLoadingMore: setLoadingMore,
-        content: name,
-        user: email,
-        hasMore: hasMore,
-        skip: skip,
-        loadingMore: loadingMore,
-        limit: limit,
-    })
+    useEffect(() => {
+        skipRef.current = skip
+    }, [skip])
 
-    // useEffect(() => {
-    //     const timer = setTimeout(async () => {
-    //         setLoading(true)
-    //         await dispatch(getUsersAdmin(name, email, limit, 0, true))
-    //         if (users?.length < limit) {
-    //             console.log("hasMore: ", hasMore);
-                
-    //             setHasMore(false)                
-    //         }
-    //         else {              
-    //             setHasMore(true)
-    //         }
-    //         setSkip(limit)
-    //         setLoading(false)
-    //     }, 400)
+    useEffect(() => {
+        const timer = setTimeout(async () => {
+            setLoading(true)
+            canLoadMore.current = false
 
-    //     return () => clearTimeout(timer)
-    // }, [dispatch, name, email])
+            const data = await dispatch(getUsersAdmin(name, email, limit, 0, true))
+            if (!data || data.length < limit) {
+                setHasMore(false)
+            } else {
+                setHasMore(true)
+            }
+            setSkip(limit)
+            setLoading(false)
+            canLoadMore.current = true
+        }, 400)
 
-    // useEffect(() => {
-    //     if (hasMore) {
-    //         console.log("start");
-            
-    //         const handleScroll = async () => {
-    //             if (!hasMore || loadingMore) return
+        return () => clearTimeout(timer)
+    }, [dispatch, name, email])
 
-    //             if (window.innerHeight + document.documentElement.scrollTop + 50 >= document.documentElement.scrollHeight) {
-    //                 setLoadingMore(true)
-    //                 const more = await dispatch(getUsersAdmin(name, email, limit, skip))
-    //                 if (!more || more.length < limit)
-    //                     setHasMore(false)
-    //                 setSkip(prev => prev + limit)
-    //                 setLoadingMore(false)
-    //             }
-    //         }
+    useEffect(() => {
+        if (!hasMore) return
 
-    //         window.addEventListener("scroll", handleScroll)
-    //         return () => window.removeEventListener("scroll", handleScroll)
-    //     }
-    //}, [name, skip, dispatch, hasMore, loadingMore, email])
+        const handleScroll = async () => {
+            if (!canLoadMore.current || loadingMore || skipRef.current === 0) {
+                return
+            }
 
-    // useEffect(() => {
-    //     const timer = setTimeout(async () => {
-    //         setLoading(true)
-    //         await dispatch(getUsersAdmin(name, email))
-    //         setLoading(false)
-    //     }, 400)
+            if (window.innerHeight + document.documentElement.scrollTop + 50 >= document.documentElement.scrollHeight) {
+                canLoadMore.current = false
+                setLoadingMore(true)
 
-    //     return () => clearTimeout(timer)
-    // }, [dispatch, name, email])
+                try {
+                    const more = await dispatch(getUsersAdmin(name, email, limit, skipRef.current))
+
+                    if (!more || more.length < limit) {
+                        setHasMore(false)
+                    }
+
+                    setSkip(prev => prev + limit)
+                } catch (error) {
+                    console.error("Error loading more:", error)
+                } finally {
+                    setLoadingMore(false)
+                    setTimeout(() => {
+                        canLoadMore.current = true
+                    }, 500) 
+                }
+            }
+        }
+        window.addEventListener("scroll", handleScroll, { passive: true })
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [dispatch, hasMore, loadingMore, name, email])
+
+    useEffect(() => {
+        canLoadMore.current = false
+    }, [name, email])
 
     return (
         <div className="bg-gradient-to-br from-blue-100 via-green-100 to-blue-100 min-h-screen pb-5">
@@ -119,13 +113,13 @@ const DashBoardUser = () => {
                         <Grid size={1}>
                             <h2 className={styleTitle}>Avatar</h2>
                         </Grid>
-                        <Grid size={2}>
+                        <Grid size={3}>
                             <h2 className={styleTitle}>Username</h2>
                         </Grid>
                         <Grid size={2}>
                             <h2 className={styleTitle}>Email</h2>
                         </Grid>
-                        <Grid size={2}>
+                        <Grid size={1}>
                             <h2 className={styleTitle}>Blogs</h2>
                         </Grid>
                         <Grid size={2}>
@@ -152,21 +146,20 @@ const DashBoardUser = () => {
                             >
                                 <Grid size={1} className="flex justify-center">
                                     <CustomAvatar
-                                        //onClick={() => }
                                         src={item.avatar}
                                         alt=""
                                         sx={{ width: 80, height: 80 }}
                                     />
                                 </Grid>
-                                <Grid size={2}>
+                                <Grid size={3}>
                                     <h3 className={styleText}>
                                         {item.name}
                                     </h3>
-                                    <div className="flex justify-between px-8 pt-5">
-                                        <h4 className="text-xl font-semibold">
+                                    <div className="flex justify-around px-10 pt-5">
+                                        <h4 className="text-base font-semibold">
                                             Followers: {item.followers}
                                         </h4>
-                                        <h4 className="text-xl font-semibold">
+                                        <h4 className="text-base font-semibold">
                                             Following: {item.following}
                                         </h4>
                                     </div>
@@ -174,7 +167,7 @@ const DashBoardUser = () => {
                                 <Grid size={2}>
                                     <h3 className={styleText}>{item.email}</h3>
                                 </Grid>
-                                <Grid size={2}>
+                                <Grid size={1}>
                                     <h3 className={styleText}>{item.blogs}</h3>
                                 </Grid>
                                 <Grid size={2}>

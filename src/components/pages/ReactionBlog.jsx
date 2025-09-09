@@ -62,15 +62,15 @@ const ReactionBlog = ({ blogId, myReaction }) => {
             >
                 <div className="flex items-center cursor-pointer">
                     {pick === null ? (
-                        <ThumbUpOffAltIcon className="text-gray-300 mr-2" fontSize="large" />
+                        <ThumbUpOffAltIcon className="text-gray-300 mr-2" fontSize="medium" />
                     ) : (
                         <img
                             src={currentReaction ? currentReaction.emoji : pick?.emoji}
                             alt=""
-                            className="w-15 h-15 mr-2"
+                            className="w-10 h-10 mr-2"
                         />
                     )}
-                    <h4 className="text-gray-300 text-xl">
+                    <h4 className="text-gray-300 text-base">
                         {currentReaction
                             ? currentReaction.label
                             : pick ? pick.label : 'Like'

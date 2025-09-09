@@ -26,7 +26,7 @@ const CreateComment = ({ blogId }) => {
         <div className="flex">
             <Avatar
                 src={user.avatar}
-                sx={{ width: 70, height: 70, marginRight: 3 }}
+                sx={{ width: 50, height: 50, marginRight: 3 }}
             />
 
             <div className="bg-[#333334] rounded-2xl px-5 py-2 w-full flex items-center">
@@ -36,13 +36,13 @@ const CreateComment = ({ blogId }) => {
                     onChange={(e) => setContent(e.target.value)}
                     placeholder={`Write a public comment...`}
                     className="
-                            w-full rounded-3xl py-3 text-gray-200 text-xl
+                            w-full rounded-3xl py-2 text-gray-200 text-base
                             placeholder-gray-400 focus:outline-none resize-none
                         "
                 />
                 <SendIcon
                     className={`${isDisabled ? 'cursor-not-allowed text-gray-500' : 'cursor-pointer text-indigo-300'}`}
-                    fontSize="large"
+                    fontSize="medium"
                     onClick={handleCreateComment}
                 />
             </div>

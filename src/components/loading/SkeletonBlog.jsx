@@ -9,13 +9,13 @@ const SkeletonBlog = () => {
                     <Skeleton
                         variant="circular"
                         animation="pulse"
-                        sx={{ width: 70, height: 70, marginRight: 3, bgcolor: 'gray' }}
+                        sx={{ width: 50, height: 50, marginRight: 3, bgcolor: 'gray' }}
                     />
                     <div>
                         <div className="flex items-center">
                             <Skeleton
                                 animation="pulse"
-                                sx={{ width: 100, height: 20, bgcolor: "gray" }}
+                                sx={{ width: 80, height: 10, bgcolor: "gray" }}
                             />
                         </div>
                         <Skeleton
@@ -28,28 +28,28 @@ const SkeletonBlog = () => {
             <div className="mt-5">
                 <Skeleton
                     animation="pulse"
-                    sx={{ width: 400, height: 20, bgcolor: "gray" }}
+                    sx={{ width: 300, height: 10, bgcolor: "gray" }}
                 />
             </div>
             <div className="mt-5">
                 <Skeleton
                     variant="rectangular"
                     animation="pulse"
-                    sx={{ height: 400, bgcolor: "gray" }}
+                    sx={{ height: 300, bgcolor: "gray" }}
                 />
             </div>
             <div className="flex justify-between">
                 <Skeleton
                     animation="pulse"
-                    sx={{ width: 300, height: 40, bgcolor: "gray" }}
+                    sx={{ width: 200, height: 30, bgcolor: "gray" }}
                 />
                 <Skeleton
                     animation="pulse"
-                    sx={{ width: 300, height: 40, bgcolor: "gray", mx: 5 }}
+                    sx={{ width: 200, height: 30, bgcolor: "gray", mx: 5 }}
                 />
                 <Skeleton
                     animation="pulse"
-                    sx={{ width: 300, height: 40, bgcolor: "gray" }}
+                    sx={{ width: 200, height: 30, bgcolor: "gray" }}
                 />
             </div>
         </div>

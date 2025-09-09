@@ -25,13 +25,13 @@ const FirstBlog = () => {
                 <CustomAvatar
                     onClick={() => navigate(`/profile/${user._id}`)}
                     src={user.avatar}
-                    sx={{ width: 70, height: 70, marginRight: 3 }}
+                    sx={{ width: 50, height: 50, marginRight: 3 }}
                 />
                 <div 
                     onClick={() => setOpenModal(true)}
-                    className="bg-[#333334] rounded-4xl flex items-center w-full h-16 hover:bg-white/10"
+                    className="bg-[#333334] rounded-4xl flex items-center w-full h-14 hover:bg-white/10"
                 >
-                    <h2 className="pl-5 text-2xl text-gray-300">What's on your mind, {user.name} ?</h2>
+                    <h2 className="pl-5 text-xl text-gray-300">What's on your mind, {user.name} ?</h2>
                 </div>
             </div>
             <Divider className="bg-gray-400" />
@@ -39,10 +39,10 @@ const FirstBlog = () => {
                 {menu.map((item) => (
                     <div 
                         key={item.text}
-                        className="flex items-center hover:bg-white/10 rounded-lg px-8 py-3 cursor-pointer"
+                        className="flex items-center hover:bg-white/10 rounded-lg px-2 py-3 cursor-pointer"
                     >
                         <item.icon fontSize="large" className={`${item.color} mr-2`} />
-                        <h2 className="font-bold text-gray-300 text-xl">{item.text}</h2>
+                        <h2 className="font-bold text-gray-300 text-base">{item.text}</h2>
                     </div>
                 ))}
             </div>

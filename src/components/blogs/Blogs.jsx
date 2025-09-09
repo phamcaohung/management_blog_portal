@@ -59,7 +59,7 @@ const Blogs = ({ blog, userId }) => {
                 <div className="flex">
                     <CustomAvatar
                         src={blog?.user?.avatar}
-                        sx={{ width: 70, height: 70, marginRight: 3 }}
+                        sx={{ width: 60, height: 60, marginRight: 3 }}
                         onClick={() => navigate(`/profile/${blog.user?._id}`)}
                     />
                     <div>
@@ -72,7 +72,7 @@ const Blogs = ({ blog, userId }) => {
                             </h2>
                             <h3
                                 onClick={handleFollow}
-                                className="font-bold text-blue-400 ml-5 text-lg cursor-pointer hover:underline"
+                                className="font-bold text-blue-400 ml-5 text-sm cursor-pointer hover:underline"
                             >
                                 {
                                     userId === blog.user?._id
@@ -81,7 +81,7 @@ const Blogs = ({ blog, userId }) => {
                                 }
                             </h3>
                         </div>
-                        <h3 className="font-semibold text-gray-300 text-base mt-2">{blog.createdAt}</h3>
+                        <h3 className="font-semibold text-gray-300 text-xs mt-2">{blog.createdAt}</h3>
                     </div>
                 </div>
                 <div>
@@ -99,7 +99,7 @@ const Blogs = ({ blog, userId }) => {
                 </div>
             </div>
             <div className="mt-5">
-                <h2 className="text-xl text-white whitespace-pre-wrap">
+                <h2 className="text-base text-white whitespace-pre-wrap">
                     {blog.content}
                 </h2>
             </div>
@@ -123,18 +123,18 @@ const Blogs = ({ blog, userId }) => {
                             key={index}
                             src={REACTIONS_IMAGE[item.reaction]}
                             alt=""
-                            className="w-10 h-10 -ml-3"
+                            className="w-7 h-7 -ml-3"
                         />
                     ))}
                     {blog.reactions?.length !== 0 &&
-                        <h5 className="text-lg text-gray-300 cursor-pointer ml-1">
+                        <h5 className="text-base text-gray-300 cursor-pointer ml-1">
                             {blog.reactions?.length}
                         </h5>
                     }
                 </div>
                 <div className="flex items-center">
                     <h5
-                        className="text-lg text-gray-300 cursor-pointer"
+                        className="text-sm text-gray-300 cursor-pointer"
                         onClick={() => setOpen(!open)}
                     >
                         {blog.comments?.length} comments
@@ -153,8 +153,8 @@ const Blogs = ({ blog, userId }) => {
                     className="flex items-center cursor-pointer"
                     onClick={() => setOpen(!open)}
                 >
-                    <ModeCommentIcon className="text-gray-300 mr-2" fontSize="large" />
-                    <h4 className="text-gray-300 text-xl">Comments</h4>
+                    <ModeCommentIcon className="text-gray-300 mr-2" fontSize="medium" />
+                    <h4 className="text-gray-300 text-base">Comments</h4>
                 </div>
             </div>
             <Collapse in={open}>
@@ -162,7 +162,7 @@ const Blogs = ({ blog, userId }) => {
                     <Divider className="bg-gray-400" />
                     {blog.comments?.length === 0 &&
                         <div className="h-20 flex justify-center items-center">
-                            <h2 className="text-lg text-gray-300">Be the first to comment.</h2>
+                            <h2 className="text-base text-gray-300">Be the first to comment.</h2>
                         </div>
                     }
                     {blog.comments?.map((item) =>

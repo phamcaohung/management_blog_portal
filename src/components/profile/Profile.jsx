@@ -35,28 +35,28 @@ const Profile = () => {
                         <Skeleton
                             variant="rectangular"
                             animation="pulse"
-                            sx={{ width: 1200, height: 600, bgcolor: "gray" }}
+                            sx={{ width: 1000, height: 500, bgcolor: "gray" }}
 
                         />
                     ) : (
                         <img
                             src={profile.avatar}
                             alt=""
-                            className="w-[1200px] h-[600px] rounded-2xl"
+                            className="w-[1000px] h-[500px] rounded-2xl"
                         />
                     )}
 
                 </div>
             </div>
-            <div className="px-100 bg-[#252728] h-40">
+            <div className="px-80 bg-[#252728] h-40">
                 <div className="flex items-center mb-5">
                     {loading ? (
                         <Skeleton
                             variant="circular"
                             animation="pulse"
                             sx={{
-                                width: 250,
-                                height: 200,
+                                width: 150,
+                                height: 100,
                                 bgcolor: "gray",
                                 marginTop: -15,
                             }}
@@ -66,8 +66,8 @@ const Profile = () => {
                             src={profile.avatar}
                             alt=""
                             sx={{
-                                width: 200,
-                                height: 200,
+                                width: 150,
+                                height: 150,
                                 borderColor: "black",
                                 borderWidth: 5,
                                 marginTop: -15,
@@ -80,10 +80,10 @@ const Profile = () => {
                             {loading ? (
                                 <Skeleton
                                     animation="pulse"
-                                    sx={{ width: 200, height: 30, bgcolor: "gray" }}
+                                    sx={{ width: 150, height: 20, bgcolor: "gray" }}
                                 />
                             ) : (
-                                <h2 className="text-4xl text-white font-bold">{profile.name}</h2>
+                                <h2 className="text-2xl text-white font-bold">{profile.name}</h2>
                             )}
                             <div className="flex mt-2">
                                 <h5 className="text-gray-300 mr-4">{profile.totalFollowers} Followers</h5>
@@ -92,7 +92,7 @@ const Profile = () => {
                         </div>
                         <div className="flex px-5 bg-[#3B3D3E] h-14 items-center rounded-xl hover:bg-white/20 cursor-pointer">
                             <EditIcon className="text-gray-200" />
-                            <h4 className="text-xl text-white font-semibold ml-2">Edit Profile</h4>
+                            <h4 className="text-base text-white font-semibold ml-2">Edit Profile</h4>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ const Profile = () => {
             </div>
             <Grid
                 container
-                className='h-auto bg-[#1C1C1D] px-72'
+                className='h-auto bg-[#1C1C1D] px-50'
                 spacing={3}
                 paddingY={5}
             >

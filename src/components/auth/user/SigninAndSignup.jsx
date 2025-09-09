@@ -90,8 +90,8 @@ const SigninAndSignup = ({ name }) => {
                         <div className="flex justify-between w-full items-center my-2">
                             <Avatar 
                                 sx={{
-                                    width: 150,
-                                    height: 150
+                                    width: 100,
+                                    height: 100
                                 }}
                                 src={avatar ? URL.createObjectURL(avatar) : ""}
                                 alt=""
@@ -103,14 +103,14 @@ const SigninAndSignup = ({ name }) => {
                                 onChange={handleAvatarChange}
                                 sx={{
                                     paddingY: 2,
-                                    paddingX: 4,
+                                    paddingX: 3,
                                     backgroundColor: "black",
                                     color: "white",
                                     fontWeight: 600,
-                                    borderRadius: 3
+                                    borderRadius: 3,
                                 }}
                             >
-                                Upload Avatar
+                                <h4 className="text-xs">Upload Avatar</h4>
                                 <VisuallyHiddenInput type="file" />
                             </Button>
                         </div>

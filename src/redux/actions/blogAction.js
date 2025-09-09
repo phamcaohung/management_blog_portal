@@ -39,6 +39,7 @@ export const getBlogs = (content, limit, skip, reset = false) => async (dispatch
                 totalBlogs: data.totalBlogs
             }
         })
+        return data.formattedBlogs
     } catch (e) {
         dispatch({ type: types.GET_BLOGS_FAILURE, payload: e.message })
     }
@@ -103,6 +104,7 @@ export const getBlogsFollowing = (content, limit, skip, reset = false) => async 
             type: reset ? types.GET_BLOGS_FOLLOWING_SUCCESS : types.GET_MORE_BLOGS_FOLLOWING_SUCCESS,
             payload: data
         })
+        return data
     } catch (e) {
         dispatch({
             type: reset ? types.GET_BLOGS_FOLLOWING_FAILURE : types.GET_MORE_BLOGS_FOLLOWING_FAILURE,

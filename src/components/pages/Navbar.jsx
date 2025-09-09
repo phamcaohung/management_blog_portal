@@ -24,15 +24,15 @@ const Navbar = ({ content, setContent}) => {
     const location = useLocation()
 
     return (
-        <div className="bg-[#252728] h-[80px] sticky top-0 z-50">
+        <div className="bg-[#252728] h-[70px] sticky top-0 z-50">
             <Grid
                 container
                 alignItems={'center'}
             >
                 <Grid size={4}>
-                    <div className='flex'>
+                    <div className='flex items-center'>
                         <img
-                            className="w-auto h-[70px] ml-3"
+                            className="w-auto h-[50px] ml-3"
                             src={logo}
                             alt=""
                         />
@@ -70,14 +70,12 @@ const Navbar = ({ content, setContent}) => {
                                     key={index}
                                     className={`
                                     ${active && 'border-b-6 border-blue-500'} 
-                                    pt-6 ml-10 cursor-pointer text-center w-30
+                                    pt-7 mx-3 cursor-pointer text-center w-25
                                     transition-all duration-300 hover:bg-white/10
                                 `}
                                 >
                                     <item.icon
-                                        sx={{
-                                            fontSize: 50
-                                        }}
+                                        fontSize='large'
                                         className={`${active ? 'text-blue-500' : 'text-gray-400'}`}
                                     />
                                 </div>
@@ -92,11 +90,9 @@ const Navbar = ({ content, setContent}) => {
                     display={'flex'}
                 >
                     <div className="flex items-center">
-                        <div className='bg-[#4F5152] rounded-4xl p-2 mr-7'>
+                        <div className='bg-[#4F5152] rounded-4xl p-1 mr-7'>
                             <NotificationsIcon
-                                sx={{
-                                    fontSize: 30
-                                }}
+                                fontSize='large'
                                 className='text-white'
                             />
                         </div>

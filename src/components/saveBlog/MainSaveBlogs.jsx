@@ -17,7 +17,7 @@ const MainSaveBlogs = () => {
                     <LeftSaveBlog setLoading={setLoading}/>
                 </Grid>
                 <Grid size={9} className="bg-[#1C1C1D] h-screen px-20 pt-10 overflow-y-auto pb-10">
-                    <h2 className="text-3xl text-gray-200 font-bold">All</h2>
+                    <h2 className="text-2xl text-gray-200 font-bold">All</h2>
                     {savedBlog.length === 0 && 
                         <div className="flex justify-center mt-20">
                             <h2 className="text-2xl text-gray-300">There are no blogs yet.</h2>

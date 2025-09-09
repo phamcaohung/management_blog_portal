@@ -21,11 +21,11 @@ const LeftSaveBlog = ({ setLoading }) => {
     return (
         <div className='px-5'>
             <div className="flex justify-between items-center py-5">
-                <h1 className="text-4xl font-bold text-white">
+                <h1 className="text-3xl font-bold text-white">
                     Saved
                 </h1>
                 <span className="bg-[#484848] py-2 px-4 rounded-xl hover:bg-white/10">
-                    <TuneIcon fontSize="large" className="text-white " />
+                    <TuneIcon fontSize="medium" className="text-white " />
                 </span>
             </div>
 

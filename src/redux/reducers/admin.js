@@ -2,8 +2,8 @@ import * as types from "../constants/adminContants"
 
 const initialState = {
     admin: null,
-    users: null,
-    blogs: null,
+    users: [],
+    blogs: [],
     totalBlogs: 0,
 
     signInError: null,
