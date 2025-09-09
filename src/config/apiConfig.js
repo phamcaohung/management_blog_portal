@@ -2,7 +2,7 @@ import axios from "axios";
 
 //https://management-blog-service.onrender.com
 
-const API_BASE_URL = "http://localhost:5000/api/v1"
+const API_BASE_URL = "https://management-blog-service.onrender.com/api/v1"
 const API_ADMIN_URL = `${API_BASE_URL}/admin`
 
 export const API = axios.create({
