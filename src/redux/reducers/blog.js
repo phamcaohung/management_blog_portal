@@ -180,8 +180,8 @@ const blogReducer = (state = initialState, action) => {
         case types.GET_MORE_BLOGS_SUCCESS:
             return {
                 ...state,
-                blogs: [...state.blogs, ...payload?.blogs],
-                totalBlogs: payload?.totalBlogs || state.totalBlogs,
+                blogs: [...state.blogs, ...payload.blogs],
+                totalBlogs: payload?.totalBlogs || 0,
                 blogError: null
             }
         case types.GET_BLOGS_FOLLOWING_SUCCESS:

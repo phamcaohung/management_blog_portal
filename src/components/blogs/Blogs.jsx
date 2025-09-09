@@ -1,6 +1,6 @@
 import { Button, Collapse, Divider, Typography } from "@mui/material"
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Comment from "../pages/Comment";
 import CreateComment from "../pages/CreateComment";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -25,6 +25,8 @@ const Blogs = ({ blog, userId }) => {
     const isFollow = followingId.includes(blog.user?._id)
     const [reactionDetail, setReactionDetail] = useState(false)
     const [expanded, setExpanded] = useState(false)
+    const [showText, setShowText] = useState(false)
+    const textRef = useRef(null)
 
     const handleFollow = async () => {
         if (isFollow) {
@@ -53,6 +55,16 @@ const Blogs = ({ blog, userId }) => {
             .sort((a, b) => b.count - a.count)
             .slice(0, 3)
     }
+
+    useEffect(() => {
+        if (textRef.current) {
+            const lineHeight = parseInt(getComputedStyle(textRef.current).lineHeight, 10);
+            const maxHeight = lineHeight * 5
+            if (textRef.current.scrollHeight > maxHeight) {
+                setShowText(true);
+            }
+        }
+    }, [blog.content]);
 
     return (
         <div className="bg-[#242526] rounded-2xl p-5 mb-8">
@@ -101,6 +113,7 @@ const Blogs = ({ blog, userId }) => {
             </div>
             <div className="mt-5">
                 <Typography
+                    ref={textRef}
                     className="text-base text-white whitespace-pre-wrap"
                     sx={
                         expanded
@@ -115,11 +128,13 @@ const Blogs = ({ blog, userId }) => {
                 >
                     {blog.content}
                 </Typography>
-                <h2 
-                    className="text-base text-gray-300 hover:underline cursor-pointer"
-                    onClick={() => setExpanded(!expanded)}>
-                    {expanded ? "See less" : "See more"}
-                </h2>
+                {showText && (
+                    <h2
+                        className="text-base text-gray-300 hover:underline cursor-pointer"
+                        onClick={() => setExpanded(!expanded)}>
+                        {expanded ? "See less" : "See more"}
+                    </h2>
+                )}
             </div>
             <div
                 onClick={() => navigate(`/blog/${blog._id}`)}

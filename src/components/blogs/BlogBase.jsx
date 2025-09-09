@@ -53,7 +53,7 @@ const BlogBase = ({ content }) => {
                 setLoadingMore(true)
 
                 try {
-                    const more = await dispatch(getBlogs(content, limit, skip))
+                    const more = await dispatch(getBlogs(content, limit, skipRef.current))
 
                     if (!more || more.length < limit) {
                         setHasMore(false)
