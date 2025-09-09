@@ -1,4 +1,4 @@
-import { Collapse, Divider } from "@mui/material"
+import { Button, Collapse, Divider, Typography } from "@mui/material"
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import { useState } from "react";
 import Comment from "../pages/Comment";
@@ -15,7 +15,7 @@ import { showNotification } from "../../redux/actions/notificationAction";
 import ReactionDetailModal from "../modals/ReactionDetailModal";
 
 
-const Blogs = ({ blog, userId }) => {    
+const Blogs = ({ blog, userId }) => {
     const followingId = useSelector(store => store.users?.user)?.following
     const [open, setOpen] = useState(false)
     const [moreHorizIcon, setMoreHorizIcon] = useState(false)
@@ -24,6 +24,7 @@ const Blogs = ({ blog, userId }) => {
     const dispatch = useDispatch()
     const isFollow = followingId.includes(blog.user?._id)
     const [reactionDetail, setReactionDetail] = useState(false)
+    const [expanded, setExpanded] = useState(false)
 
     const handleFollow = async () => {
         if (isFollow) {
@@ -99,8 +100,25 @@ const Blogs = ({ blog, userId }) => {
                 </div>
             </div>
             <div className="mt-5">
-                <h2 className="text-base text-white whitespace-pre-wrap">
+                <Typography
+                    className="text-base text-white whitespace-pre-wrap"
+                    sx={
+                        expanded
+                            ? {}
+                            : {
+                                display: "-webkit-box",
+                                WebkitLineClamp: 5,
+                                WebkitBoxOrient: "vertical",
+                                overflow: "hidden",
+                            }
+                    }
+                >
                     {blog.content}
+                </Typography>
+                <h2 
+                    className="text-base text-gray-300 hover:underline cursor-pointer"
+                    onClick={() => setExpanded(!expanded)}>
+                    {expanded ? "See less" : "See more"}
                 </h2>
             </div>
             <div
