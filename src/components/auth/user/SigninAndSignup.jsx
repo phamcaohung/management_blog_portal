@@ -136,7 +136,7 @@ const SigninAndSignup = ({ name }) => {
 
                 <div className="form-container sign-in">
                     <form onSubmit={handleSignIn}>
-                        <h1>Sign In 1</h1>
+                        <h1>Sign In</h1>
                         <TextField
                             margin="normal"
                             required
